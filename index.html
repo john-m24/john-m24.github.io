@@ -13,14 +13,36 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      color: gray;
+      font-family: Arial, sans-serif;
+      flex-direction: column;
     }
     img {
-      max-width: 90%;
-      max-height: 90%;
+      width: 25vw;
+      height: auto;
+    }
+    footer {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.8rem;
+      color: gray;
+    }
+    footer a {
+      color: gray;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <img src="lunets_logo.png" alt="Centered image" />
+  <footer>
+    <a href="mailto:john@lunetscompany.com" style="color: gray; text-decoration: none;">john@lunetscompany.com</a><br />
+    <span style="color: gray; font-size: 0.7rem;">&copy; 2025 Lunets Company. All rights reserved.</span>
+  </footer>  
 </body>
 </html>
