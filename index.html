@@ -1,16 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>John M24 - Personal Website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>john</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: white;
+      color: black;
+      line-height: 1.6;
+    }
+    
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+    
+    .blog-link {
+      color: black;
+      text-decoration: underline;
+      font-size: 1.1rem;
+      margin-bottom: 4rem;
+      transition: color 0.2s ease;
+    }
+    
+    .blog-link:hover {
+      color: #666;
+    }
+    
+    .social-links {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      text-align: left;
+    }
+    
+    .social-links a {
+      display: block;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s ease;
+    }
+    
+    .social-links a:hover {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">john</div>
+    <a href="blog.html" class="blog-link">read blog</a>
+    
+    <div class="social-links">
+      <a href="https://instagram.com/john" target="_blank" rel="noopener noreferrer">instagram</a>
+      <a href="mailto:john@lunetscompany.com">email</a>
+    </div>
+  </div>
+</body>
 </html>
