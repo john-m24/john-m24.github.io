@@ -1,5 +1,3 @@
-# Reclaiming Our Liberty
-
 Ever since Thomas Jefferson declared that all people have the right to “Life, Liberty, and the pursuit of Happiness,” humanity has worked to realize that promise.  
 More than two centuries later, it’s time to ask:  
 Do we still know what those rights mean? Are we truly living them out?
