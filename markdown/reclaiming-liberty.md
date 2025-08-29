@@ -86,7 +86,7 @@ In *The Spirit of the Laws* (1748), Montesquieu proposed a system to prevent con
 
 That principle shouldn’t just apply to government — it should apply to all powerful entities including corporations, universities and the individual.
 
-But the problem is that **the individual is no longer counterbalancing these systems.**
+But the problem is that t**he individual is no longer counterbalancing these systems.**
 
 In 2025, governments, companies, universities, and other institutions are competing for power in full view.
 
@@ -108,7 +108,7 @@ AI, specifically the LLM, has already proven itself as an extremely capable tech
 
 Whether we do this or not, governments and companies are already using it to empower themselves. AI, used wisely, is a tool for liberation. The individual can’t afford to miss this wave of technology.
 
-We’ve allowed big tech companies to control our time and attention. We need to leverage this technology to reclaim our time, our goals, and our power.
+We’ve allowed big tech companies to leverage the last wave of technology to control our time and attention. We need to learn from our mistakes and use this new wave of technology to reclaim our time, our goals, and our power.
 
 ---
 
@@ -116,7 +116,11 @@ We’ve allowed big tech companies to control our time and attention. We need to
 
 Do yourself a favor and **delete the distractions** in your life to make it easier for yourself to take the first step. You may ask, what’s a distraction?
 
-By definition (Oxford Languages), a distraction is “a thing that prevents someone from giving full attention to something else.**”** In this context, it’s something that is preventing you from giving your full attention towards achieving your goals. For example, ask yourself if your social media use helps you achieve your goals more than it hurts. It may do **both**, though if it hurts more than it helps, it’s worth considering it a distraction and deleting it. This can be temporary — consider it a **reset**.
+By definition (Oxford Languages), a distraction is “a thing that prevents someone from giving full attention to something else.**”** In this context, it’s something that prevents you from giving your full attention to achieving your goals. For example, ask yourself:
+
+**Does your social media use help you achieve your goals more than it hurts?**
+
+It may do **both**, though if it hurts more than it helps, it’s a distraction, so delete it. This can be temporary — consider it a **reset**.
 
 Now, think about something you want to do or learn and get started. You don’t need a master plan.
 
