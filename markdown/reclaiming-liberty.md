@@ -84,11 +84,7 @@ In *The Spirit of the Laws* (1748), Montesquieu proposed a system to prevent con
 > “Ambition must be made to counteract ambition.”
 > 
 
-That principle shouldn’t just apply to government — it should apply to all powerful entities including corporations, universities and the individual.
-
-But the problem is that t**he individual is no longer counterbalancing these systems.**
-
-In 2025, governments, companies, universities, and other institutions are competing for power in full view.
+That principle shouldn’t just apply to government — it should apply to all powerful entities including corporations, universities and the individual. But the problem is that the individual is no longer counterbalancing these systems. In 2025, governments, companies, universities, and other institutions are competing for power in full view.
 
 And the average individual? **Scrolling.**
 
