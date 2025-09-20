@@ -5,7 +5,7 @@ A minimalist static blog generator that converts Markdown to clean HTML.
 ## Quick Start
 
 1. **Write** your post in `markdown/your-post-name.md` (start with `# Your Title`)
-2. **Build** with `node build-blog.js`
+2. **Build** with `node scripts/build-blog.js`
 3. **View** `index.html` in browser
 
 ## Commands
