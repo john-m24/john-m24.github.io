@@ -13,7 +13,8 @@ const BLOG_CONFIG = {
   description: 'thoughts & writings',
   author: 'john',
   email: 'jjmose2409@gmail.com',
-  linkedin: 'https://www.linkedin.com/in/john-mose-a7a575210/'
+  linkedin: 'https://www.linkedin.com/in/john-mose-a7a575210/',
+  mutt: 'https://mutt-inc.com/'
 };
 
 // HTML template for blog posts
@@ -134,6 +135,26 @@ const POST_TEMPLATE = (title, date, content) => `<!DOCTYPE html>
       background: none;
       padding: 0;
     }
+    
+    .social-links {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      text-align: left;
+    }
+    
+    .social-links a {
+      display: block;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s ease;
+    }
+    
+    .social-links a:hover {
+      color: black;
+    }
   </style>
 </head>
 <body>
@@ -149,6 +170,12 @@ const POST_TEMPLATE = (title, date, content) => `<!DOCTYPE html>
     
     <div class="post-content">
       ${content}
+    </div>
+    
+    <div class="social-links">
+      <a href="${BLOG_CONFIG.mutt}" target="_blank" rel="noopener noreferrer">mutt.</a>
+      <a href="${BLOG_CONFIG.linkedin}" target="_blank" rel="noopener noreferrer">linkedin</a>
+      <a href="mailto:${BLOG_CONFIG.email}">email</a>
     </div>
   </div>
 </body>
@@ -305,12 +332,24 @@ const BLOG_LISTING_TEMPLATE = (posts) => `<!DOCTYPE html>
     </div>
     
     <div class="social-links">
+      <a href="${BLOG_CONFIG.mutt}" target="_blank" rel="noopener noreferrer">mutt.</a>
       <a href="${BLOG_CONFIG.linkedin}" target="_blank" rel="noopener noreferrer">linkedin</a>
       <a href="mailto:${BLOG_CONFIG.email}">email</a>
     </div>
   </div>
 </body>
 </html>`;
+
+// Function to extract title from first heading in Markdown
+function extractTitleFromMarkdown(content) {
+  const lines = content.split('\n');
+  for (const line of lines) {
+    if (line.startsWith('# ')) {
+      return line.substring(2).trim();
+    }
+  }
+  return null;
+}
 
 // Function to extract metadata from Markdown frontmatter
 function extractMetadata(markdown) {
@@ -358,9 +397,54 @@ function generateExcerpt(content, maxLength = 150) {
     : plainText;
 }
 
+// Function to build a specific blog post
+function buildSpecificPost(filename) {
+  const markdownDir = path.join(__dirname, 'markdown');
+  const blogDir = path.join(__dirname, 'blog');
+  
+  const markdownPath = path.join(markdownDir, filename);
+  
+  if (!fs.existsSync(markdownPath)) {
+    console.log(`❌ File ${filename} not found in markdown/ folder`);
+    return;
+  }
+  
+  console.log(`📝 Building ${filename}...`);
+  
+  const markdownContent = fs.readFileSync(markdownPath, 'utf8');
+  const { metadata, content } = extractMetadata(markdownContent);
+  
+  // Extract title from first heading (this is the main source)
+  let title = extractTitleFromMarkdown(content);
+  
+  // Fallback to frontmatter title if no heading found
+  if (!title) {
+    title = metadata.title;
+  }
+  
+  // Final fallback to filename if no title found anywhere
+  if (!title) {
+    title = filename.replace('.md', '').replace(/-/g, ' ');
+  }
+  
+  const date = metadata.date || new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+  
+  const htmlContent = marked.parse(content);
+  const htmlFilename = filename.replace('.md', '.html');
+  const htmlPath = path.join(blogDir, htmlFilename);
+  const finalHtmlContent = POST_TEMPLATE(title, date, htmlContent);
+  
+  fs.writeFileSync(htmlPath, finalHtmlContent);
+  console.log(`✅ Created blog/${htmlFilename} with title: "${title}"`);
+}
+
 // Main build function
 function buildBlog() {
-  console.log('🚀 Building blog...');
+  console.log(' Building blog...');
   
   // Create directories if they don't exist
   const markdownDir = path.join(__dirname, 'markdown');
@@ -383,7 +467,7 @@ function buildBlog() {
   
   if (markdownFiles.length === 0) {
     console.log('📝 No Markdown files found in markdown/ folder.');
-    console.log('💡 Create some .md files in the markdown/ folder to get started!');
+    console.log(' Create some .md files in the markdown/ folder to get started!');
     return;
   }
   
@@ -391,7 +475,7 @@ function buildBlog() {
   
   // Process each Markdown file
   markdownFiles.forEach(file => {
-    console.log(` Processing ${file}...`);
+    console.log(`📝 Processing ${file}...`);
     
     const markdownPath = path.join(markdownDir, file);
     const markdownContent = fs.readFileSync(markdownPath, 'utf8');
@@ -399,8 +483,19 @@ function buildBlog() {
     // Extract metadata and content
     const { metadata, content } = extractMetadata(markdownContent);
     
-    // Set defaults if metadata is missing
-    const title = metadata.title || file.replace('.md', '').replace(/-/g, ' ');
+    // Extract title from first heading (this is the main source)
+    let title = extractTitleFromMarkdown(content);
+    
+    // Fallback to frontmatter title if no heading found
+    if (!title) {
+      title = metadata.title;
+    }
+    
+    // Final fallback to filename if no title found anywhere
+    if (!title) {
+      title = file.replace('.md', '').replace(/-/g, ' ');
+    }
+    
     const date = metadata.date || new Date().toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
@@ -410,7 +505,7 @@ function buildBlog() {
     // Convert Markdown to HTML
     const htmlContent = marked.parse(content);
     
-    // Generate filename
+    // Generate filename (same as markdown file, just .html extension)
     const filename = file.replace('.md', '.html');
     
     // Create HTML file in blog directory
@@ -426,7 +521,7 @@ function buildBlog() {
       filename
     });
     
-    console.log(`✅ Created blog/${filename}`);
+    console.log(`✅ Created blog/${filename} with title: "${title}"`);
   });
   
   // Sort posts by date (newest first)
@@ -439,9 +534,18 @@ function buildBlog() {
   
   console.log(`✅ Updated blog.html with ${posts.length} posts`);
   console.log('🎉 Blog build complete!');
-  console.log(`📁 Your HTML files are in the blog/ folder`);
+  console.log(` Your HTML files are in the blog/ folder`);
   console.log(`📝 Your Markdown source files are in the markdown/ folder`);
 }
 
-// Run the build
-buildBlog();
+// Check command line arguments
+const args = process.argv.slice(2);
+
+if (args.length > 0) {
+  // Build specific file
+  const filename = args[0].endsWith('.md') ? args[0] : `${args[0]}.md`;
+  buildSpecificPost(filename);
+} else {
+  // Build all files
+  buildBlog();
+}
