@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dead ends (archive) - learning how to think</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: white;
+      color: black;
+      line-height: 1.6;
+    }
+    
+    .header {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 100;
+    }
+    
+    .site-title {
+      font-family: Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: normal;
+      color: black;
+      text-decoration: none;
+    }
+    
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .back-link {
+      align-self: flex-start;
+      margin-bottom: 3rem;
+    }
+    
+    .back-link a {
+      color: #666;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    
+    .back-link a:hover {
+      color: black;
+    }
+    
+    .archive-header {
+      margin-bottom: 4rem;
+    }
+    
+    .archive-title {
+      font-family: Georgia, serif;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    
+    .archive-subtitle {
+      color: #666;
+      font-size: 1.1rem;
+    }
+    
+    .archive-posts {
+      text-align: left;
+      width: 100%;
+    }
+    
+    .post {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .post:last-child {
+      border-bottom: none;
+    }
+    
+    .post-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    
+    .post-title a {
+      color: black;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .post-title a:hover {
+      color: #666;
+    }
+    
+    .post-excerpt {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .post-date {
+      color: #999;
+      font-size: 0.8rem;
+    }
+    
+    .social-links {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      text-align: left;
+    }
+    
+    .social-links a {
+      display: block;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s ease;
+    }
+    
+    .social-links a:hover {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html" class="site-title">learning how to think</a>
+  </div>
+  
+  <div class="container">
+    <div class="back-link">
+      <a href="index.html">← back to home</a>
+    </div>
+    
+    <div class="archive-header">
+      <h1 class="archive-title">dead ends (archive)</h1>
+      <p class="archive-subtitle">all thoughts, finished and unfinished</p>
+    </div>
+    
+    <div class="archive-posts">
+      <div class="post">
+        <h2 class="post-title">
+          <a href="blog/reclaiming-liberty.html">reclaiming liberty</a>
+        </h2>
+        <div class="post-date">August 12, 2025</div>
+      </div>
+    </div>
+    
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/john-mose-a7a575210/" target="_blank" rel="noopener noreferrer">linkedin</a>
+      <a href="mailto:jjmose2409@gmail.com">email</a>
+      <a href="https://mutt-inc.com/" target="_blank" rel="noopener noreferrer">mutt.</a>
+    </div>
+  </div>
+</body>
+</html>
