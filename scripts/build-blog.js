@@ -160,7 +160,7 @@ const POST_TEMPLATE = (title, date, content) => `<!DOCTYPE html>
 <body>
   <div class="container">
     <div class="back-link">
-      <a href="../blog.html">← back to blog</a>
+      <a href="../index.html">← back to home</a>
     </div>
     
     <div class="post-header">
@@ -528,11 +528,11 @@ function buildBlog() {
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
   
   // Generate blog listing page
-  const blogListingPath = path.join(__dirname, 'blog.html');
+  // Blog posts are now linked directly from index.html
   const blogListingContent = BLOG_LISTING_TEMPLATE(posts);
   fs.writeFileSync(blogListingPath, blogListingContent);
   
-  console.log(`✅ Updated blog.html with ${posts.length} posts`);
+  console.log(`✅ Blog posts are linked directly from index.html`);
   console.log('🎉 Blog build complete!');
   console.log(` Your HTML files are in the blog/ folder`);
   console.log(`📝 Your Markdown source files are in the markdown/ folder`);

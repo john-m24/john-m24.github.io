@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>john</title>
+  <title>learning how to think</title>
   <style>
     * {
       margin: 0;
@@ -18,7 +18,22 @@
       line-height: 1.6;
     }
     
-    .container {
+    .header {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 100;
+    }
+    
+    .site-title {
+      font-family: Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: normal;
+      color: black;
+      text-decoration: none;
+    }
+    
+    .main-content {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -28,18 +43,48 @@
       text-align: center;
     }
     
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 4rem;
-      font-weight: bold;
-      margin-bottom: 2rem;
+    .middle-note {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      line-height: 1.7;
+      min-height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    .quote-text {
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    
+    .quote-author {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .quote-translation {
+      font-size: 0.8rem;
+      color: #888;
+      font-style: normal;
+      margin-top: 0.3rem;
+    }
+    
+    .blog-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
     }
     
     .blog-link {
       color: black;
       text-decoration: underline;
-      font-size: 1.1rem;
-      margin-bottom: 4rem;
+      font-size: 1rem;
       transition: color 0.2s ease;
     }
     
@@ -69,15 +114,76 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">john</div>
-    <a href="blog.html" class="blog-link">read blog</a>
-    
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/john-mose-a7a575210/" target="_blank" rel="noopener noreferrer">linkedin</a>
-      <a href="mailto:jjmose2409@gmail.com">email</a>
-      <a href="https://mutt-inc.com/" target="_blank" rel="noopener noreferrer">mutt.</a>
+  <div class="header">
+    <a href="index.html" class="site-title">learning how to think</a>
+  </div>
+  
+  <div class="main-content">
+    <div class="middle-note" id="quote-container">
+      <div class="quote-text" id="quote-text">"None but ourselves can free our minds."</div>
+      <div class="quote-author" id="quote-author">― Bob Marley</div>
+      <div class="quote-translation" id="quote-translation"></div>
+    </div>
+    <div class="blog-links">
+      <a href="blog/reclaiming-liberty.html" class="blog-link">reclaiming liberty</a>
     </div>
   </div>
+  
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/john-mose-a7a575210/" target="_blank" rel="noopener noreferrer">linkedin</a>
+    <a href="mailto:jjmose2409@gmail.com">email</a>
+    <a href="https://mutt-inc.com/" target="_blank" rel="noopener noreferrer">mutt.</a>
+  </div>
+
+  <script>
+    const quotes = [
+      {
+        text: "None but ourselves can free our minds.",
+        author: "Bob Marley"
+      },
+      {
+        text: "Le doute est un état désagréable, mais la certitude est ridicule.",
+        author: "Voltaire",
+        translation: "Doubt is an unpleasant state, but certainty is absurd."
+      },
+      {
+        text: "The unexamined life is not worth living.",
+        author: "Socrates"
+      }
+    ];
+
+    let currentQuoteIndex = 0;
+    const quoteText = document.getElementById('quote-text');
+    const quoteAuthor = document.getElementById('quote-author');
+    const quoteTranslation = document.getElementById('quote-translation');
+    const quoteContainer = document.getElementById('quote-container');
+
+    function showQuote(index) {
+      quoteContainer.style.opacity = '0';
+      
+      setTimeout(() => {
+        quoteText.textContent = `"${quotes[index].text}"`;
+        quoteAuthor.textContent = `― ${quotes[index].author}`;
+        
+        // Show translation if it exists, otherwise hide it
+        if (quotes[index].translation) {
+          quoteTranslation.textContent = quotes[index].translation;
+          quoteTranslation.style.display = 'block';
+        } else {
+          quoteTranslation.style.display = 'none';
+        }
+        
+        quoteContainer.style.opacity = '1';
+      }, 250);
+    }
+
+    function nextQuote() {
+      currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+      showQuote(currentQuoteIndex);
+    }
+
+    // Change quote every 4 seconds
+    setInterval(nextQuote, 4000);
+  </script>
 </body>
 </html>

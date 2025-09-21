@@ -27,7 +27,7 @@ npm install
 - **Output**: HTML files generated in `blog/` folder
 - **Title**: Extracted from first `# heading` in your markdown
 - **Date**: Auto-generated (current date) or add to frontmatter
-- **Listing**: `blog.html` automatically updated with all posts
+- **Listing**: Blog posts linked directly from main page
 
 ## File Structure
 
@@ -35,7 +35,7 @@ npm install
 markdown/          # Your source files (.md)
 blog/             # Generated HTML files
 index.html        # Homepage
-blog.html         # Blog listing (auto-generated)
+# Blog posts linked directly from main page
 build-blog.js     # Build script
 ```
 
